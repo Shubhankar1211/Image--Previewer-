@@ -7,12 +7,11 @@ document.addEventListener('DOMContentLoaded', function() {
     inpFile.addEventListener("change", function() {
         // Check if user has selected at atleast  a file
         if (this.files && this.files[0]) {
-            const reader = new FileReader(); // filereader is an object in js that can read the content of th file
+            const reader = new FileReader(); // filereader is an object in js that can read the content of the file
             
             // Whhen the file is succesfully read ,then this load event gets triggered
             reader.addEventListener("load", function() {
-                // Set the source of preview image to the FileReader result
-                previewImage.src = this.result;
+                previewImage.src = this.result;// assign that data to previewImage.src so the image can be shown. and this is refer to file readder and result is propertry of filereader hweer image data is stored
                 // Show the image
                 previewImage.style.display = "block";
                 // Hide the default text
