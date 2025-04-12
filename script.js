@@ -1,20 +1,17 @@
-// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Get references to the DOM elements
     const inpFile = document.getElementById("inpFile");
     const previewContainer = document.getElementById("imagePreview");
     const previewImage = previewContainer.querySelector(".image-preview__image");
     const previewDefaultText = previewContainer.querySelector(".image-preview__default-text");
 
-    // Add event listener for file input changes
     inpFile.addEventListener("change", function() {
-        // Check if user has selected a file
+        // Check if user has selected at atleast  a file
         if (this.files && this.files[0]) {
-            const reader = new FileReader();
+            const reader = new FileReader(); // filereader is an object in js that can read the content of th file
             
-            // When file is loaded
+            // Whhen the file is succesfully read ,then this load event gets triggered
             reader.addEventListener("load", function() {
-                // Set the source of preview image to the FileReader result (base64 data URL)
+                // Set the source of preview image to the FileReader result
                 previewImage.src = this.result;
                 // Show the image
                 previewImage.style.display = "block";
@@ -22,13 +19,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 previewDefaultText.style.display = "none";
             });
             
-            // Read the selected file as a data URL (base64 encoded string)
+            // this reads the image fiel as Data url . it converts teh file in to a base 64string,which can be used as the source for the image
             reader.readAsDataURL(this.files[0]);
         } else {
-            // Reset the preview if no file is selected
-            previewImage.style.display = "none";
-            previewDefaultText.style.display = "block";
-            previewImage.src = "";
+            // it there is no image selected
+            previewImage.style.display = "none"; // hide the image
+            previewDefaultText.style.display = "block"; // show the deafult text which is written
+            previewImage.src = ""; // it reset the source of the image ot a empty string to nesure no iamge is displayed
         }
     });
 });
