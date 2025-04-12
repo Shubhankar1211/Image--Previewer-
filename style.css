@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f5f5f5;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+#inpFile {
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.image-preview {
+    width: 300px;
+    min-height: 200px;
+    border: 2px dashed #ccc;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #cccccc;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-preview__image {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+.image-preview__default-text {
+    display: block;
+}
